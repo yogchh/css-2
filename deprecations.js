@@ -4,6 +4,12 @@
  * array and a "message" string.
  */
 const versionDeprecations = {
+  '14.0.0': [
+    {
+      selectors: ['.UnderlineNav-item.selected'],
+      message: `Use aria-selected="true" to indicate selected state instead of class="selected".`
+    }
+  ],
   '13.0.0': [
     {
       selectors: [
