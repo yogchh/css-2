@@ -40,7 +40,7 @@
     background-color: lighten($gray-200, 3%);
   }
 
-  &.selected {
+  @include selected-state($pseudos: ()) {
     color: $text-white;
     background-color: $bg-blue;
   }

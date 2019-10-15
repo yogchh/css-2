@@ -31,7 +31,7 @@
     }
   }
 
-  &.selected {
+  @include selected-state($pseudos: ()) {
     font-weight: $font-weight-bold;
     color: $text-gray-dark;
     border-bottom-color: $orange-600;

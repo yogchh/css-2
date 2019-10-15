@@ -37,7 +37,7 @@
     background-color: $gray-100;
   }
 
-  &.selected {
+  @include selected-state($pseudos: ()) {
     font-weight: $font-weight-bold;
     color: $text-gray-dark;
     cursor: default;
