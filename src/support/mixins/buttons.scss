@@ -20,17 +20,14 @@
       border-color: rgba($black, 0.35);
     }
 
-    &:active,
-    &.selected,
-    [open] > & {
+    @include button-selected-state() {
       background-color: darken(desaturate($bg, 10%), 6%);
       background-image: none;
       border-color: rgba($black, 0.35); // repeat to avoid shift on click-drag off of button
       box-shadow: $btn-active-shadow;
     }
 
-    &:disabled,
-    &.disabled {
+    @include button-disabled-state() {
       color: rgba($color, 0.4);
       background-color: $bg2;
       background-image: none;
@@ -53,17 +50,14 @@
       border-color: $black-fade-50;
     }
 
-    &:active,
-    &.selected,
-    [open] > & {
+    @include button-selected-state() {
       background-color: darken(mix($bg, $bg2, 50%), 7%);
       background-image: none;
       border-color: $black-fade-50; // repeat to avoid shift on click-drag off of button
       box-shadow: $btn-active-shadow;
     }
 
-    &:disabled,
-    &.disabled {
+    @include button-disabled-state() {
       color: rgba($color, 0.75);
       background-color: mix($bg2, $white, 50%);
       background-image: none;
@@ -99,9 +93,7 @@
     }
   }
 
-  &:active,
-  &.selected,
-  [open] > & {
+  @include button-selected-state() {
     color: $text-white;
     background-color: darken($color, 5%);
     background-image: none;
@@ -109,8 +101,7 @@
     box-shadow: $btn-active-shadow;
   }
 
-  &:disabled,
-  &.disabled {
+  @include button-disabled-state() {
     color: rgba($color, 0.4);
     background-color: $bg2;
     background-image: none;
@@ -129,10 +120,7 @@
     background-color: rgba($black, 0.07);
   }
 
-  &:hover,
-  &:active,
-  &.selected,
-  [open] > & {
+  @include button-selected-state($pseudos: (active, hover)) {
     color: $bg-color;
     background-color: $text-color;
     background-image: none;
@@ -149,8 +137,7 @@
     box-shadow: 0 0 0 0.2em rgba($text-color, 0.4);
   }
 
-  &:disabled,
-  &.disabled {
+  @include button-disabled-state() {
     color: $black-fade-30;
     background-color: $bg-white;
     border-color: $black-fade-15;
