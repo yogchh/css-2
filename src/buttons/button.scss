@@ -45,15 +45,13 @@
     outline: 0;
   }
 
-  &:disabled,
-  &.disabled {
+  @include button-disabled-state() {
     cursor: default;
     // Repeat `background-position` because `:hover`
     background-position: 0 0;
   }
 
-  &:active,
-  &.selected {
+  @include selected-state() {
     background-image: none;
   }
 }
@@ -192,7 +190,7 @@
     text-decoration: underline;
   }
 
-  &:disabled {
+  @include button-disabled-state($classes: ()) {
     &,
     &:hover {
       color: rgba($gray-600, 0.5);

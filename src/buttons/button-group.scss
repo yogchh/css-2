@@ -32,10 +32,7 @@
     border-bottom-right-radius: $border-radius;
   }
 
-  &.selected,
-  &:focus,
-  &:active,
-  &:hover {
+  @include selected-state($pseudos: (active, focus, hover)) {
     border-right-width: $border-width;
 
     + .BtnGroup-item,
@@ -64,10 +61,7 @@
     border-radius: 0;
   }
 
-  &.selected,
-  &:focus,
-  &:active,
-  &:hover {
+  @include selected-state($pseudos: (active, focus, hover)) {
     .BtnGroup-item {
       border-right-width: $border-width;
     }
