@@ -122,7 +122,7 @@
     box-shadow: 2px 0 0 $blue inset;
   }
 
-  &.navigation-focus {
+  @include selected-state($aria-states: (), $pseudos: (), $classes: (navigation-focus)) {
     // Focus styles for when drag icon
     .Box-row--drag-button {
       color: $text-blue;
@@ -154,13 +154,13 @@
 }
 
 .Box-row--focus-gray {
-  &.navigation-focus {
+  @include selected-state($aria-states: (), $pseudos: (), $classes: (navigation-focus)) {
     background-color: $bg-gray;
   }
 }
 
 .Box-row--focus-blue {
-  &.navigation-focus {
+  @include selected-state($aria-states: (), $pseudos: (), $classes: (navigation-focus)) {
     background-color: $bg-blue-light;
   }
 }
