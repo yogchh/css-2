@@ -27,3 +27,17 @@
     border-right-color: $background;
   }
 }
+
+// TODO@14.0.0: remove "selected" from $classes
+@mixin selected-state($aria-states: $nav-selected-aria-states, $pseudos: (active), $classes: (selected)) {
+  @at-root #{state-selector(&, $aria-states, $pseudos, $classes)} {
+    @content;
+  }
+}
+
+// TODO@14.0.0: remove "disabled" from $classes
+@mixin disabled-state($aria-states: $nav-disabled-aria-states, $pseudos: (disabled), $classes: (disabled)) {
+  @at-root #{state-selector(&, $aria-states, $pseudos, $classes)} {
+    @content;
+  }
+}
