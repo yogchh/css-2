@@ -18,8 +18,8 @@ warn "Building the stats locally..."
 cp $path after.json
 
 key=".selectors.values[]"
-jq -r $key before.json > before.txt
-jq -r $key after.json > after.txt
+jq -r $key before.json | sort > before.txt
+jq -r $key after.json | sort > after.txt
 
 diff {before,after}.txt && echo 'no diff!'
 
