@@ -1,0 +1,43 @@
+@function state-selector($selector, $aria-states: (), $pseudos: (), $classes: ()) {
+  @return join(
+    aria-state-selectors($selector, $aria-states),
+    join(
+      pseudo-selectors($selector, $pseudos),
+      class-selectors($selector, $classes),
+      $separator: comma
+    ),
+    $separator: comma
+  );
+}
+
+@function class-selectors($selector, $classes: ()) {
+  $selectors: ();
+  @each $class in $classes {
+    $selectors: append($selectors, "#{$selector}.#{$class}");
+  }
+  @return $selectors;
+}
+
+@function pseudo-selectors($selector, $pseudos: ()) {
+  $selectors: ();
+  @each $pseudo in $pseudos {
+    $selectors: append($selectors, "#{$selector}:#{$pseudo}");
+  }
+  @return $selectors;
+}
+
+@function aria-state-selectors($selector, $states: ()) {
+  $selectors: ();
+  @each $state, $value in $states {
+    $attr: "aria-#{$state}";
+    $str-value: "#{$value}";
+    @if str-index($str-value, "not-") == 1 {
+      $not-value: str-slice($str-value, 5);
+      $selectors: append($selectors, "#{$selector}[#{$attr}]:not([#{$attr}=#{$not-value}])");
+    }
+    @else {
+      $selectors: append($selectors, "#{$selector}[#{$attr}=#{$str-value}]");
+    }
+  }
+  @return $selectors;
+}
